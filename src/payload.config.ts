@@ -70,7 +70,7 @@ export default buildConfig({
   db: mongooseAdapter({
     url: process.env.DATABASE_URI || '',
   }),
-  collections: [Pages, Media, Categories, Users, Models, Features, ProductDetails, Test],
+  collections: [Pages, Posts, Media, Categories, Users, Models, Features, ProductDetails, Test],
   cors: [getServerSideURL()].filter(Boolean),
   globals: [Header, Footer, HomePage, Navigation],
   plugins: [
