@@ -1,14 +1,8 @@
 'use client'
 import { useHeaderTheme } from '@/providers/HeaderTheme'
-import React, { useEffect, useRef } from 'react'
-import type { Feature, FeatureBlock, Hero3D, Page } from '@/payload-types'
-import { CMSLink } from '@/components/Link'
+import React, { useEffect } from 'react'
+import type { FeatureBlock } from '@/payload-types'
 import { Media } from '@/components/Media'
-import RichText from '@/components/RichText'
-import { useFrame, Canvas } from '@react-three/fiber'
-import { OrbitControls } from '@react-three/drei'
-import * as THREE from 'three'
-import { ConsoleModel } from './console'
 
 export const FeatureComp: React.FC<FeatureBlock> = ({ features }) => {
   const { setHeaderTheme } = useHeaderTheme()

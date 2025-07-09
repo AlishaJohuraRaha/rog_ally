@@ -54,7 +54,7 @@ const jsxConverters: JSXConvertersFunction<NodeTypes> = ({ defaultConverters }) 
     ),
     code: ({ node }) => <CodeBlock className="col-start-2" {...node.fields} />,
     cta: ({ node }) => <CallToActionBlock {...node.fields} />,
-    gap: ({ node }) => <div className="relative width-full" style={{ height: `${node.fields.gapSize}${node.fields.unit}` }}/>
+    gap: ({ node } : {node : {fields:{gapSize: number, unit: number}}}) => <div className="relative width-full" style={{ height: `${node.fields.gapSize}${node.fields.unit}` }}/>
     , 
   },
 })

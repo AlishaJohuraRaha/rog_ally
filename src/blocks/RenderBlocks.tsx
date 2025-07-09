@@ -12,7 +12,6 @@ import { SuzumeScene } from './Suzume/Component'
 import { Hero3DRenderer } from './Hero3d/Component'
 import { GapComp } from './Gap'
 import { FeatureComp } from './Features/Components'
-import { Detail3DComp } from './Details'
 import { ScrollDetailComp } from './ScrollDetail/Component'
 
 const blockComponents = {

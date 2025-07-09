@@ -169,7 +169,6 @@ export interface Page {
     | Hero3D
     | Gap
     | FeatureBlock
-    | Detail3D
     | ScrollDetail
   )[];
   meta?: {
@@ -786,60 +785,6 @@ export interface FeatureBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "Detail3D".
- */
-export interface Detail3D {
-  richText1?: {
-    root: {
-      type: string;
-      children: {
-        type: string;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ('ltr' | 'rtl') | null;
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
-  } | null;
-  richText2?: {
-    root: {
-      type: string;
-      children: {
-        type: string;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ('ltr' | 'rtl') | null;
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
-  } | null;
-  richText3?: {
-    root: {
-      type: string;
-      children: {
-        type: string;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ('ltr' | 'rtl') | null;
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
-  } | null;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'detail3d';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "ScrollDetail".
  */
 export interface ScrollDetail {
@@ -1205,7 +1150,6 @@ export interface PagesSelect<T extends boolean = true> {
         hero3d?: T | Hero3DSelect<T>;
         gap?: T | GapSelect<T>;
         featureImages?: T | FeatureBlockSelect<T>;
-        detail3d?: T | Detail3DSelect<T>;
         scrollDetail?: T | ScrollDetailSelect<T>;
       };
   meta?:
@@ -1354,17 +1298,6 @@ export interface FeatureBlockSelect<T extends boolean = true> {
         feature?: T;
         id?: T;
       };
-  id?: T;
-  blockName?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "Detail3D_select".
- */
-export interface Detail3DSelect<T extends boolean = true> {
-  richText1?: T;
-  richText2?: T;
-  richText3?: T;
   id?: T;
   blockName?: T;
 }

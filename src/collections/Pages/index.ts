@@ -23,7 +23,6 @@ import {
 import { Hero3DBlock } from '@/blocks/Hero3d/config'
 import { GapBlock } from '@/blocks/Gap'
 import { FeatureBlock } from '@/blocks/Features/config'
-import { Detail3DBlock } from '@/blocks/Details/config'
 import { ScrollDetailBlock } from '@/blocks/ScrollDetail/config'
 
 export const Pages: CollectionConfig<'pages'> = {
@@ -89,7 +88,6 @@ export const Pages: CollectionConfig<'pages'> = {
                 Hero3DBlock,
                 GapBlock,
                 FeatureBlock,
-                Detail3DBlock,
                 ScrollDetailBlock
               ],
               required: true,

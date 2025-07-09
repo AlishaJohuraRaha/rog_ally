@@ -4,7 +4,7 @@ Command: npx gltfjsx@6.5.3 c:\dev\three-next\media\console.glb -o c:\dev\three-n
 */
 
 import * as THREE from 'three'
-import React from 'react'
+import React, { JSX } from 'react'
 import { useGLTF } from '@react-three/drei'
 import { GLTF } from 'three-stdlib'
 
@@ -59,11 +59,11 @@ type GLTFResult = GLTF & {
     ['screen two']: THREE.MeshStandardMaterial
     ['Material.007']: THREE.MeshStandardMaterial
   }
-  animations: GLTFAction[]
+  animations: any[]
 }
 
 export function ConsoleModel(props: JSX.IntrinsicElements['group']) {
-  const { nodes, materials } = useGLTF('/console.glb') as GLTFResult
+  const { nodes, materials } = useGLTF('/console.glb')as unknown as GLTFResult
   return (
     <group {...props} dispose={null}>
       <group scale={1}>
