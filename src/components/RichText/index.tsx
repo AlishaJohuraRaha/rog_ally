@@ -1,4 +1,5 @@
 import { MediaBlock } from '@/blocks/MediaBlock/Component'
+
 import {
   DefaultNodeTypes,
   SerializedBlockNode,
@@ -21,6 +22,7 @@ import type {
 import { BannerBlock } from '@/blocks/Banner/Component'
 import { CallToActionBlock } from '@/blocks/CallToAction/Component'
 import { cn } from '@/utilities/ui'
+import { GapComp } from '@/blocks/Gap'
 
 type NodeTypes =
   | DefaultNodeTypes
@@ -52,6 +54,8 @@ const jsxConverters: JSXConvertersFunction<NodeTypes> = ({ defaultConverters }) 
     ),
     code: ({ node }) => <CodeBlock className="col-start-2" {...node.fields} />,
     cta: ({ node }) => <CallToActionBlock {...node.fields} />,
+    gap: ({ node }) => <div className="relative width-full" style={{ height: `${node.fields.gapSize}${node.fields.unit}` }}/>
+    , 
   },
 })
 
@@ -63,6 +67,7 @@ type Props = {
 
 export default function RichText(props: Props) {
   const { className, enableProse = true, enableGutter = true, ...rest } = props
+  
   return (
     <ConvertRichText
       converters={jsxConverters}

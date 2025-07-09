@@ -50,7 +50,7 @@
   }
 
   [data-theme='dark'] {
-    --background: 0 0% 0%;
+    --background: 0 0% 100%;
     --foreground: 210 40% 98%;
 
     --card: 0 0% 4%;
@@ -100,4 +100,8 @@ html {
 html[data-theme='dark'],
 html[data-theme='light'] {
   opacity: initial;
+}
+
+h3 {
+  color: #000;
 }

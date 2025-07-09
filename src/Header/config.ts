@@ -8,6 +8,9 @@ export const Header: GlobalConfig = {
   access: {
     read: () => true,
   },
+    hooks: {
+    afterChange: [revalidateHeader],
+  },
   fields: [
     {
       name: 'navItems',
@@ -24,9 +27,9 @@ export const Header: GlobalConfig = {
           RowLabel: '@/Header/RowLabel#RowLabel',
         },
       },
+
+      
     },
   ],
-  hooks: {
-    afterChange: [revalidateHeader],
-  },
+
 }

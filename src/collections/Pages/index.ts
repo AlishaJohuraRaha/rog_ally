@@ -20,6 +20,11 @@ import {
   OverviewField,
   PreviewField,
 } from '@payloadcms/plugin-seo/fields'
+import { Hero3DBlock } from '@/blocks/Hero3d/config'
+import { GapBlock } from '@/blocks/Gap'
+import { FeatureBlock } from '@/blocks/Features/config'
+import { Detail3DBlock } from '@/blocks/Details/config'
+import { ScrollDetailBlock } from '@/blocks/ScrollDetail/config'
 
 export const Pages: CollectionConfig<'pages'> = {
   slug: 'pages',
@@ -66,16 +71,27 @@ export const Pages: CollectionConfig<'pages'> = {
     {
       type: 'tabs',
       tabs: [
-        {
-          fields: [hero],
-          label: 'Hero',
-        },
+        // {
+        //   fields: [hero],
+        //   label: 'Hero',
+        // },
         {
           fields: [
             {
               name: 'layout',
               type: 'blocks',
-              blocks: [CallToAction, Content, MediaBlock, Archive, FormBlock],
+              blocks: [
+                CallToAction, 
+                Content, 
+                MediaBlock, 
+                Archive, 
+                FormBlock, 
+                Hero3DBlock,
+                GapBlock,
+                FeatureBlock,
+                Detail3DBlock,
+                ScrollDetailBlock
+              ],
               required: true,
               admin: {
                 initCollapsed: true,

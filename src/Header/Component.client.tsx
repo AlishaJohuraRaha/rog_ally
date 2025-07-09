@@ -3,14 +3,16 @@ import { useHeaderTheme } from '@/providers/HeaderTheme'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
+import { cn } from '@/utilities/ui'
 
-import type { Header } from '@/payload-types'
+import type { Navigation } from '@/payload-types'
+import { Media } from '@/components/Media'
 
 import { Logo } from '@/components/Logo/Logo'
 import { HeaderNav } from './Nav'
 
 interface HeaderClientProps {
-  data: Header
+  data: Navigation
 }
 
 export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
@@ -30,12 +32,48 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
   }, [headerTheme])
 
   return (
-    <header className="container relative z-20   " {...(theme ? { 'data-theme': theme } : {})}>
-      <div className="py-8 flex justify-between">
-        <Link href="/">
-          <Logo loading="eager" priority="high" className="invert dark:invert-0" />
+    <header
+      className={cn(
+        'container z-50 sticky top-0 transition-colors duration-300',
+        'bg-transparent',
+        '[&.is-sticky]:bg-white/100',
+      )}
+      {...(theme ? { 'data-theme': theme } : {})}
+      onScrollCapture={(e) => {
+        // No-op: just to ensure React doesn't warn about unknown prop
+      }}
+      ref={(el) => {
+        if (!el) return
+        let lastScrollY = window.scrollY
+        const onScroll = () => {
+          if (window.scrollY > 0) {
+            el.classList.add('is-sticky')
+          } else {
+            el.classList.remove('is-sticky')
+          }
+          lastScrollY = window.scrollY
+        }
+        window.addEventListener('scroll', onScroll)
+        onScroll()
+        return () => window.removeEventListener('scroll', onScroll)
+      }}
+    >
+      <div className="py-2 flex justify-between items-center gap-4">
+        <div className="flex justify-start items-center gap-4">
+          <Link href="/">
+            <Media resource={data.asusLogo} />
+          </Link>
+          <Link href={data.rogLink}>
+            <Media resource={data.rogLogo} />
+          </Link>
+          <Link href={data.tufLink}>
+            <Media resource={data.tufLogo} />
+          </Link>
+          <HeaderNav data={data} />
+        </div>
+        <Link href={data.poweredByURL}>
+          Powered by <strong>{data.poweredByText}</strong>
         </Link>
-        <HeaderNav data={data} />
       </div>
     </header>
   )

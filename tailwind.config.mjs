@@ -112,10 +112,19 @@ const config = {
           css: [
             {
               '--tw-prose-body': 'var(--text)',
-              '--tw-prose-headings': 'var(--text)',
+              // '--tw-prose-headings': 'var(--text)',
               h1: {
-                fontWeight: 'normal',
+                fontWeight: 'bold',
                 marginBottom: '0.25em',
+                color: 'black',
+              },
+              h2: {
+                fontWeight: 'bold',
+                marginBottom: '0.25em',
+                color: 'black',
+              },
+              h3: {
+                color: 'black',
               },
             },
           ],
