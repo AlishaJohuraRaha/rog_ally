@@ -15,7 +15,7 @@ export const Users: CollectionConfig = {
     defaultColumns: ['name', 'email'],
     useAsTitle: 'name',
   },
-  auth: false,
+  auth: true,
   fields: [
     {
       name: 'name',
