@@ -7,13 +7,14 @@ import configPromise from '@payload-config'
 import { getPayload } from 'payload'
 import React from 'react'
 import PageClient from './page.client'
+import { connection } from 'next/server'
 
 export const dynamic = 'force-static'
 export const revalidate = 600
 
 export default async function Page() {
+  await connection()
   const payload = await getPayload({ config: configPromise })
-
   const posts = await payload.find({
     collection: 'posts',
     depth: 1,
